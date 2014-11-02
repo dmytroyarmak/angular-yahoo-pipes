@@ -1,3 +1,45 @@
 .dy-yahoo-pipes {
+  color: #fff;
+  width: 420px;
+}
+.dy-yahoo-pipes-item {
+  position: relative;
+  padding: 0 20px;
+  background-position-y: 50%;
+  overflow: hidden;
+  height: 88px;
+  -webkit-transition: height 1s;
+          transition: height 1s;
+  cursor: pointer;
+}
+.dy-yahoo-pipes-item.is-active {
+  height: 316px;
+  cursor: default;
+}
+.dy-yahoo-pipes-item.is-active .dy-yahoo-pipes-item-description {
+  opacity: 1;
+}
+.dy-yahoo-pipes-item.is-active .dy-yahoo-pipes-item-link {
+  opacity: 1;
+}
+.dy-yahoo-pipes-item-title {
+  padding: 10px 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
+}
+.dy-yahoo-pipes-item-description,
+.dy-yahoo-pipes-item-link {
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+          transition: opacity .5s;
+}
+.dy-yahoo-pipes-item-link {
+  top: 270px;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
 }

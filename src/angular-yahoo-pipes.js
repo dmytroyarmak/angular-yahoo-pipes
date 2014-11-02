@@ -12,13 +12,21 @@ angular.module('dyYahooPipes').constant(
       return item.title;
     },
     description: function(item) {
-      return item.description.replace(/(<([^>]+)>)/ig, '');
+      return item.description
+        .replace(/(<([^>]+)>)/ig, '')
+        .replace(/(&[^;]+;)/ig, '')
+        .replace('Read More', '');
+    },
+    link: function(item) {
+      return item.link;
     },
     imageUrl: function(item) {
       var images = item['media:thumbnail'],
           firstImage = angular.isArray(images) ? images[0] : images;
 
-      return firstImage.url;
+      return firstImage.url
+        .replace(/w=[0-9]+/, 'w=420')
+        .replace(/h=[0-9]+/, 'h=316');
     }
   }
 );
@@ -34,11 +42,11 @@ angular.module('dyYahooPipes').factory('dyYahooPipesParser', function(DY_YAHOO_P
       }, {});
     },
 
-    parseResponseData: function (responseData, itemCount) {
+    parseResponseData: function (responseData, count) {
       var rawItems;
 
       if (responseData.value && responseData.value.items) {
-        rawItems = responseData.value.items.slice(0, itemCount);
+        rawItems = responseData.value.items.slice(0, count);
         return rawItems.map(this.parseItem);
       } else {
         return [];
@@ -49,10 +57,10 @@ angular.module('dyYahooPipes').factory('dyYahooPipesParser', function(DY_YAHOO_P
 
 angular.module('dyYahooPipes').factory('dyYahooPipesFetcher', function($http, $q, DY_YAHOO_PIPES_URL_PATTERN, DY_YAHOO_PIPES_DEFAULT_COUNT, dyYahooPipesParser) {
   return {
-    fetch: function (pipeId, config) {
+    fetch: function (pipeId, count) {
       var url = DY_YAHOO_PIPES_URL_PATTERN.replace('PIPE_ID', pipeId);
       return $http.jsonp(url).then(function(response) {
-        return dyYahooPipesParser.parseResponseData(response.data, config.count || DY_YAHOO_PIPES_DEFAULT_COUNT);
+        return dyYahooPipesParser.parseResponseData(response.data, count || DY_YAHOO_PIPES_DEFAULT_COUNT);
       });
     }
   };
@@ -68,7 +76,21 @@ angular.module('dyYahooPipes').directive('dyYahooPipes', function() {
       count: '='
     },
     controller: function($scope, dyYahooPipesFetcher) {
-      dyYahooPipesFetcher.fetch($scope.pipeId, {count: $scope.count}).then(function(items) {
+      $scope.styleFor = function(item) {
+        return {
+          'background-image': 'url(' + item.imageUrl + ')'
+        };
+      };
+
+      $scope.isActive = function(item) {
+        return $scope.active === item;
+      };
+
+      $scope.setActive = function(item) {
+        $scope.active = item;
+      };
+
+      dyYahooPipesFetcher.fetch($scope.pipeId, $scope.count).then(function(items) {
         $scope.items = items;
       });
     }

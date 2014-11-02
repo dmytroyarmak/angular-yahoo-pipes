@@ -1,3 +1,13 @@
 <div class="dy-yahoo-pipes">
-  <pre>{{items | json}}</pre>
+  <div
+    class="dy-yahoo-pipes-item"
+    ng-style="styleFor(item)"
+    ng-class="{'is-active': isActive(item)}"
+    ng-click="setActive(item)"
+    ng-repeat="item in items"
+  >
+    <h3 class="dy-yahoo-pipes-item-title">{{item.title}}</h3>
+    <p class="dy-yahoo-pipes-item-description">{{item.description}}</p>
+    <a class="dy-yahoo-pipes-item-link" ng-href="{{item.link}}">Read more...</a>
+  </div>
 </div>
