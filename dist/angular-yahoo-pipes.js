@@ -14,7 +14,9 @@ angular.module('dyYahooPipes').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('angular-yahoo-pipes.tpl.html',
-    "<pre>Yahoo Pipes!</pre>\n"
+    "<div class=\"dy-yahoo-pipes\">\n" +
+    "  <pre>Yahoo Pipes!</pre>\n" +
+    "</div>\n"
   );
 
 }]);

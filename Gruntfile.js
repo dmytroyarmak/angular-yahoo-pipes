@@ -56,15 +56,39 @@ module.exports = function(grunt) {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.js'
       }
+    },
+    less: {
+      dist: {
+        src: 'src/<%= pkg.name %>.less',
+        dest: 'tmp/style.css'
+      }
+    },
+    autoprefixer: {
+      dist: {
+        src: '<%= less.dist.dest %>',
+        dest: 'dist/<%= pkg.name %>.css'
+      }
+    },
+    cssmin: {
+      dist: {
+        src: '<%= autoprefixer.dist.dest %>',
+        dest: 'dist/<%= pkg.name %>.min.css'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-ng-annotate');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+  grunt.registerTask('build:js', ['jshint', 'ngtemplates', 'ngAnnotate', 'concat', 'uglify']);
+  grunt.registerTask('build:css', ['less', 'autoprefixer', 'cssmin']);
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'ngtemplates', 'ngAnnotate', 'concat', 'uglify']);
+  grunt.registerTask('default', ['build:js', 'build:css']);
 };
