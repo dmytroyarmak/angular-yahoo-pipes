@@ -1,0 +1,36 @@
+{
+  "name": "angular-yahoo-pipes",
+  "version": "0.0.0",
+  "description": "Angular.js directive to show Yahoo Pipes",
+  "main": "./dist/angular-yahoo-pipes.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dmytroyarmak/angular-yahoo-pipes.git"
+  },
+  "keywords": [
+    "angular",
+    "directive"
+  ],
+  "author": "Dmytro Yarmak <dmytroyarmak@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmytroyarmak/angular-yahoo-pipes/issues"
+  },
+  "devDependencies": {
+    "bower": "~1.3.12",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-angular-templates": "~0.5.7",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-less": "~0.12.0",
+    "grunt-ng-annotate": "~0.4.0",
+    "grunt-autoprefixer": "~1.0.1",
+    "grunt-contrib-uglify": "~0.6.0"
+  }
+}

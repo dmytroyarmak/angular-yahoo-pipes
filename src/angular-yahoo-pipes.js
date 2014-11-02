@@ -1,7 +1,9 @@
-angular.module('dyYahooPipes', []).directive('dyYahooPipes', function() {
+angular.module('dyYahooPipes', []).directive('dyYahooPipes', function($http) {
+  'use strict';
+
   return {
     restrict: 'E',
     replace: true,
-    template: '<pre>Yahoo Pipes!</pre>'
+    templateUrl: 'angular-yahoo-pipes.tpl.html'
   };
 });
