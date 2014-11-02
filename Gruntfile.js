@@ -12,10 +12,7 @@ module.exports = function(grunt) {
       ' Licensed <%= pkg.license %> */\n',
     // Task configuration.
     jshint: {
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      source: {
+      dist: {
         src: 'src/**/*.js'
       }
     },
@@ -74,6 +71,16 @@ module.exports = function(grunt) {
         src: '<%= autoprefixer.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.css'
       }
+    },
+    watch: {
+      js: {
+        files: ['src/<%= pkg.name %>.js', 'src/<%= pkg.name %>.tpl.html'],
+        tasks: 'build:js'
+      },
+      css: {
+        files: 'src/<%= pkg.name %>.less',
+        tasks: 'build:css'
+      }
     }
   });
 
@@ -85,6 +92,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build:js', ['jshint', 'ngtemplates', 'ngAnnotate', 'concat', 'uglify']);
   grunt.registerTask('build:css', ['less', 'autoprefixer', 'cssmin']);
