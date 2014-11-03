@@ -73,6 +73,9 @@ angular.module('dyYahooPipes').directive('dyYahooPipes', function() {
     templateUrl: 'angular-yahoo-pipes.tpl.html',
     scope: {
       pipeId: '@',
+      loadingText: '@',
+      emptyText: '@',
+      linkText: '@',
       count: '='
     },
     controller: function($scope, dyYahooPipesFetcher) {

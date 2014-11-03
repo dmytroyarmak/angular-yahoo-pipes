@@ -75,6 +75,9 @@ angular.module('dyYahooPipes').directive('dyYahooPipes', function() {
     templateUrl: 'angular-yahoo-pipes.tpl.html',
     scope: {
       pipeId: '@',
+      loadingText: '@',
+      emptyText: '@',
+      linkText: '@',
       count: '='
     },
     controller: ['$scope', 'dyYahooPipesFetcher', function($scope, dyYahooPipesFetcher) {
@@ -117,7 +120,7 @@ angular.module('dyYahooPipes').run(['$templateCache', function($templateCache) {
     "\n" +
     "  <div ng-if=\"!isLoading() && isEmpty()\">\r" +
     "\n" +
-    "    <p class=\"dy-yahoo-pipes-notice\">There are no items in current pipe...</p>\r" +
+    "    <p class=\"dy-yahoo-pipes-notice\">{{emptyText || 'There are no items in current pipe...'}}</p>\r" +
     "\n" +
     "  </div>\r" +
     "\n" +
@@ -125,7 +128,7 @@ angular.module('dyYahooPipes').run(['$templateCache', function($templateCache) {
     "\n" +
     "  <div ng-if=\"isLoading()\">\r" +
     "\n" +
-    "    <p class=\"dy-yahoo-pipes-notice\">Pipe is beeing loaded...</p>\r" +
+    "    <p class=\"dy-yahoo-pipes-notice\">{{loadingText || 'Pipe is beeing loaded...'}}</p>\r" +
     "\n" +
     "  </div>\r" +
     "\n" +
@@ -149,7 +152,7 @@ angular.module('dyYahooPipes').run(['$templateCache', function($templateCache) {
     "\n" +
     "    <p class=\"dy-yahoo-pipes-item-description\">{{item.description}}</p>\r" +
     "\n" +
-    "    <a class=\"dy-yahoo-pipes-item-link\" ng-href=\"{{item.link}}\">Read more...</a>\r" +
+    "    <a class=\"dy-yahoo-pipes-item-link\" ng-href=\"{{item.link}}\">{{linkText || 'Read more...'}}</a>\r" +
     "\n" +
     "  </div>\r" +
     "\n" +
