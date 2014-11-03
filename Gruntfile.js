@@ -84,6 +84,16 @@ module.exports = function(grunt) {
         files: 'src/<%= pkg.name %>.less',
         tasks: 'build:css'
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      },
+      watch: {
+        configFile: 'karma.conf.js',
+        autoWatch: true,
+        singleRun: false
+      }
     }
   });
 
@@ -96,10 +106,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build:js', ['jshint', 'ngtemplates', 'ngAnnotate', 'concat', 'uglify']);
   grunt.registerTask('build:css', ['less', 'autoprefixer', 'cssmin']);
 
   // Default task.
-  grunt.registerTask('default', ['build:js', 'build:css']);
+  grunt.registerTask('default', ['test', 'build']);
+  grunt.registerTask('build', ['build:js', 'build:css']);
+  grunt.registerTask('test', ['karma:unit']);
 };
