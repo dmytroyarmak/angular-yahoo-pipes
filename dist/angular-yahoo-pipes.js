@@ -92,6 +92,14 @@ angular.module('dyYahooPipes').directive('dyYahooPipes', function() {
         $scope.active = item;
       };
 
+      $scope.isLoading = function() {
+        return $scope.items == null;
+      };
+
+      $scope.isEmpty = function() {
+        return $scope.items && !$scope.items.length;
+      };
+
       dyYahooPipesFetcher.fetch($scope.pipeId, $scope.count).then(function(items) {
         $scope.items = items;
       });
@@ -103,19 +111,50 @@ angular.module('dyYahooPipes').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('angular-yahoo-pipes.tpl.html',
-    "<div class=\"dy-yahoo-pipes\">\n" +
-    "  <div\n" +
-    "    class=\"dy-yahoo-pipes-item\"\n" +
-    "    ng-style=\"styleFor(item)\"\n" +
-    "    ng-class=\"{'is-active': isActive(item)}\"\n" +
-    "    ng-click=\"setActive(item)\"\n" +
-    "    ng-repeat=\"item in items\"\n" +
-    "  >\n" +
-    "    <h3 class=\"dy-yahoo-pipes-item-title\">{{item.title}}</h3>\n" +
-    "    <p class=\"dy-yahoo-pipes-item-description\">{{item.description}}</p>\n" +
-    "    <a class=\"dy-yahoo-pipes-item-link\" ng-href=\"{{item.link}}\">Read more...</a>\n" +
-    "  </div>\n" +
-    "</div>\n"
+    "<div class=\"dy-yahoo-pipes\" ng-class=\"{'is-loading': isLoading(), 'is-empty': isEmpty()}\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "  <div ng-if=\"!isLoading() && isEmpty()\">\r" +
+    "\n" +
+    "    <p class=\"dy-yahoo-pipes-notice\">There are no items in current pipe...</p>\r" +
+    "\n" +
+    "  </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "  <div ng-if=\"isLoading()\">\r" +
+    "\n" +
+    "    <p class=\"dy-yahoo-pipes-notice\">Pipe is beeing loaded...</p>\r" +
+    "\n" +
+    "  </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "  <div\r" +
+    "\n" +
+    "    class=\"dy-yahoo-pipes-item\"\r" +
+    "\n" +
+    "    ng-style=\"styleFor(item)\"\r" +
+    "\n" +
+    "    ng-class=\"{'is-active': isActive(item)}\"\r" +
+    "\n" +
+    "    ng-click=\"setActive(item)\"\r" +
+    "\n" +
+    "    ng-repeat=\"item in items\"\r" +
+    "\n" +
+    "  >\r" +
+    "\n" +
+    "    <h3 class=\"dy-yahoo-pipes-item-title\">{{item.title}}</h3>\r" +
+    "\n" +
+    "    <p class=\"dy-yahoo-pipes-item-description\">{{item.description}}</p>\r" +
+    "\n" +
+    "    <a class=\"dy-yahoo-pipes-item-link\" ng-href=\"{{item.link}}\">Read more...</a>\r" +
+    "\n" +
+    "  </div>\r" +
+    "\n" +
+    "</div>\r" +
+    "\n"
   );
 
 }]);

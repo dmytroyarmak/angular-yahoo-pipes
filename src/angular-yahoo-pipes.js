@@ -90,6 +90,14 @@ angular.module('dyYahooPipes').directive('dyYahooPipes', function() {
         $scope.active = item;
       };
 
+      $scope.isLoading = function() {
+        return $scope.items == null;
+      };
+
+      $scope.isEmpty = function() {
+        return $scope.items && !$scope.items.length;
+      };
+
       dyYahooPipesFetcher.fetch($scope.pipeId, $scope.count).then(function(items) {
         $scope.items = items;
       });

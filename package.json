@@ -1,7 +1,7 @@
 {
   "name": "angular-yahoo-pipes",
   "version": "0.0.0",
-  "description": "Angular.js directive to show Yahoo Pipes",
+  "description": "An angular.js directive to show Yahoo Pipes",
   "main": "./dist/angular-yahoo-pipes.js",
   "directories": {
     "example": "example"

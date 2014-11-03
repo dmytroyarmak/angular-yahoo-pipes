@@ -12,6 +12,9 @@ module.exports = function(grunt) {
       ' Licensed <%= pkg.license %> */\n',
     // Task configuration.
     jshint: {
+      options: {
+        jshintrc: true
+      },
       dist: {
         src: 'src/**/*.js'
       }
