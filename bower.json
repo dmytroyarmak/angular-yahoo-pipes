@@ -5,7 +5,7 @@
   "authors": [
     "Dmytro Yarmak <dmytroyarmak@gmail.com>"
   ],
-  "description": "An angular.js directive to show Yahoo Pipes",
+  "description": "An angular.js directive to fetch and display Yahoo Pipes",
   "main": "./dist/angular-yahoo-pipes.js",
   "keywords": [
     "angular",

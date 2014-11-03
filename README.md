@@ -1,4 +1,4 @@
 angular-yahoo-pipes
 ===================
 
-Angular.js directive to show Yahoo Pipes 
+An angular.js directive to fetch and display Yahoo Pipes!

@@ -46,12 +46,13 @@
 }
 .dy-yahoo-pipes-item-title {
   top: 1em;
-  max-height: 4em;
-  font-size: 1em;
+  max-height: 5em;
+  font-size: .75em;
+  font-weight: 600;
   color: #2d434e;
-  -webkit-transform: translateY(4em);
-      -ms-transform: translateY(4em);
-          transform: translateY(4em);
+  -webkit-transform: translateY(8em);
+      -ms-transform: translateY(8em);
+          transform: translateY(8em);
   -webkit-transition: -webkit-transform .5s;
           transition: transform .5s;
 }
@@ -69,16 +70,16 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 .dy-yahoo-pipes-item-description {
-  top: 8em;
-  max-height: 10em;
+  top: 7em;
+  max-height: 11em;
   font-size: 0.8em;
   text-transform: none;
   font-weight: 600;
   color: #74777b;
   opacity: 0;
-  -webkit-transform: translateY(8em);
-      -ms-transform: translateY(8em);
-          transform: translateY(8em);
+  -webkit-transform: translateY(3em);
+      -ms-transform: translateY(3em);
+          transform: translateY(3em);
   -webkit-transition: all .5s;
           transition: all .5s;
 }
