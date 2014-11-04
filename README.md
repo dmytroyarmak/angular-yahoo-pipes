@@ -49,7 +49,7 @@ To use this directive in your project you should:
 The code of the directive has ngDoc documentation. You can see it in [src/angular-yahoo-pipes.js](https://github.com/dmytroyarmak/angular-yahoo-pipes/blob/master/src/angular-yahoo-pipes.js) file.
 Generating HTML documentation is planned as a improvement for this project.
 
-# Testing
+## Testing
 
 The code of `angular-yahoo-pipes` directive is covered by unit tests.
 Tests are written using Jasmine and angular-mocks.
@@ -59,7 +59,7 @@ To run tests you can use karma-cli or grunt task (make sure that you install nod
 grunt test
 ```
 
-# Developing
+## Developing
 
 Grunt is used as task manager for this project. To run tests or build project you need to have node.js installed in your environment.
 After that nessessary npm modules and bower components should be installed:
@@ -76,7 +76,7 @@ After that you can use all grunt tasks. For example:
 - `grunt build` to build js and less to dist folder
 - `grunt test` to run unit tests using karma
 
-# Improvement plan
+## Improvement plan
 
 - [ ] pass parse functions as attribute to directive to overwrite or decorate default parsers
 - [ ] improve default parser functions to manage more types of pipes
