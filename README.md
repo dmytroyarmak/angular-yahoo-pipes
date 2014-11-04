@@ -16,22 +16,28 @@ If you want to look at demo or example of using you can download the project and
 ## How to use
 
 To use this directive in your project you should:
-1. Add script file from dist directory to your application:
+
+1. Copy dist directory to your project's assets or install `angular-yahoo-pipes` using Bower:
   ```
-  <script src="../dist/angular-yahoo-pipes.js"></script>
+  bower install angular-yahoo-pipes
+  ```
+  
+2. Add script file from dist directory to your application:
+  ```
+  <script src="path_to_library/dist/angular-yahoo-pipes.js"></script>
   ```
 
-2. Add `dyYahooPipes` module as dependency to your application:
+3. Add `dyYahooPipes` module as dependency to your application:
   ```
   angular.module('myApp', ['dyYahooPipes']);
   ```
 
-3. You can write your own CSS styles or use the existing theme:
+4. You can write your own CSS styles or use the existing theme:
   ```
   <link rel="stylesheet" href="../dist/angular-yahoo-pipes.css">
   ```
 
-4. Just insert directive anywhere you want:
+5. Just insert directive anywhere you want:
   ```
   <div class="container">
     <dy-yahoo-pipes pipe-id="IDwA0nTK2xGv8oU0JhOy0Q"></dy-yahoo-pipes>
