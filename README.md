@@ -15,22 +15,22 @@ If you want to look at demo or example of using you can download the project and
 
 ## How to use
 
-To use this directive in your project you should: 
+To use this directive in your project you should:
 1. Add script file from dist directory to your application:
   ```
   <script src="../dist/angular-yahoo-pipes.js"></script>
   ```
-  
+
 2. Add `dyYahooPipes` module as dependency to your application:
   ```
   angular.module('myApp', ['dyYahooPipes']);
   ```
-  
+
 3. You can write your own CSS styles or use the existing theme:
   ```
   <link rel="stylesheet" href="../dist/angular-yahoo-pipes.css">
   ```
-  
+
 4. Just insert directive anywhere you want:
   ```
   <div class="container">
@@ -40,7 +40,7 @@ To use this directive in your project you should:
 
 ## Documentation
 
-The code of the directive has ngDoc documentation. You can see it in [src/angular-yahoo-pipes.js](https://github.com/dmytroyarmak/angular-yahoo-pipes/blob/master/src/angular-yahoo-pipes.js) file. 
+The code of the directive has ngDoc documentation. You can see it in [src/angular-yahoo-pipes.js](https://github.com/dmytroyarmak/angular-yahoo-pipes/blob/master/src/angular-yahoo-pipes.js) file.
 Generating HTML documentation is planned as a improvement for this project.
 
 # Testing
@@ -55,7 +55,7 @@ grunt test
 
 # Developing
 
-Grunt is used as task manager for this project. To run tests or build project you need to have node.js installed in your environment. 
+Grunt is used as task manager for this project. To run tests or build project you need to have node.js installed in your environment.
 After that nessessary npm modules and bower components should be installed:
 ```
 npm install
@@ -76,4 +76,5 @@ After that you can use all grunt tasks. For example:
 - [ ] improve default parser functions to manage more types of pipes
 - [ ] improve error managing and logging
 - [ ] add chosing of pipe to example
-- [ ] write second CSS theme add chosing of theme to example
+- [ ] write second CSS theme
+- [ ] add chosing of theme to example
