@@ -11,7 +11,7 @@ The directive has been built with modularity and testability in mind. It consist
 
 If you want to look at demo or example of using you can download the project and open [example/index.html](https://github.com/dmytroyarmak/angular-yahoo-pipes/blob/master/example/index.html) in you browser or you can just use this link:
 
-### [Demo](http://dmytroyarmak.github.io/angular-yahoo-pipes/example)
+### [Demo](http://dmytroyarmak.github.io/angular-yahoo-pipes/example) (Warning: Sometimes Yahoo Pipes API is working unstable and can failed or return zero items for used pipe)
 
 ## How to use
 
