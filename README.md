@@ -69,3 +69,11 @@ npm install -g grunt-cli
 After that you can use all grunt tasks. For example:
 - `grunt build` to build js and less to dist folder
 - `grunt test` to run unit tests using karma
+
+# Improvement plan
+
+- [ ] pass parse functions as attribute to directive to overwrite or decorate default parsers
+- [ ] improve default parser functions to manage more types of pipes
+- [ ] improve error managing and logging
+- [ ] add chosing of pipe to example
+- [ ] write second CSS theme add chosing of theme to example
