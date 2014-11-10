@@ -112,8 +112,8 @@ describe('dyYahooPipes', function() {
         parsedResponseDataMock = {};
         spyOn(dyYahooPipesParser, 'parseResponseData').and.returnValue(parsedResponseDataMock);
         pipeIdMock = 'pipeIdMock';
-        expectedRequestUrl = 'http://pipes.yahoo.com/pipes/pipe.run?_render=json&_id=' + pipeIdMock + '&_callback=JSON_CALLBACK';
-        $httpBackend.whenJSONP(expectedRequestUrl).respond(responseDataMock);;
+        expectedRequestUrl = 'http://pipes.yahoo.com/pipes/pipe.run?_render=json&_id=' + pipeIdMock;
+        $httpBackend.whenGET(expectedRequestUrl).respond(responseDataMock);;
 
         dyYahooPipesFetcher.fetch(pipeIdMock, 4).then(function(result) {
           resolveValue = result;
@@ -130,8 +130,8 @@ describe('dyYahooPipes', function() {
         $httpBackend.flush();
       });
 
-      it('should make jsonp request to right url', function() {
-        $httpBackend.expectJSONP(expectedRequestUrl);
+      it('should make GET request to right url', function() {
+        $httpBackend.expectGET(expectedRequestUrl);
         $httpBackend.flush();
       });
 

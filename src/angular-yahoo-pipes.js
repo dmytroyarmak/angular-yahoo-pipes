@@ -20,7 +20,7 @@ angular.module('dyYahooPipes', []);
  */
 angular.module('dyYahooPipes').constant(
   'DY_YAHOO_PIPES_URL_PATTERN',
-  'http://pipes.yahoo.com/pipes/pipe.run?_render=json&_id=PIPE_ID&_callback=JSON_CALLBACK'
+  'http://pipes.yahoo.com/pipes/pipe.run?_render=json&_id=PIPE_ID'
 );
 
 /**
@@ -195,7 +195,7 @@ angular.module('dyYahooPipes').factory('dyYahooPipesFetcher', function($http, $q
      */
     fetch: function (pipeId, count) {
       var url = DY_YAHOO_PIPES_URL_PATTERN.replace('PIPE_ID', pipeId);
-      return $http.jsonp(url).then(function(response) {
+      return $http.get(url).then(function(response) {
         return dyYahooPipesParser.parseResponseData(response.data, count || DY_YAHOO_PIPES_DEFAULT_COUNT);
       });
     }
