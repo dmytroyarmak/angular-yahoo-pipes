@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @ngdoc module
  * @name dyYahooPipes
@@ -152,7 +154,7 @@ angular.module('dyYahooPipes').factory('dyYahooPipesParser', function(DY_YAHOO_P
      * @param {integer} count Number of items to parse
      * @return {Array} Array of parsed items
      */
-    parseResponseData: function (responseData, count) {
+    parseResponseData: function(responseData, count) {
       var rawItems;
 
       if (responseData.value && responseData.value.items) {
@@ -193,7 +195,7 @@ angular.module('dyYahooPipes').factory('dyYahooPipesFetcher', function($http, $q
      * @param {integer} count Number of items to fetch
      * @returns {promise} Promise that will be resolved by array of pipe's items.
      */
-    fetch: function (pipeId, count) {
+    fetch: function(pipeId, count) {
       var url = DY_YAHOO_PIPES_URL_PATTERN.replace('PIPE_ID', pipeId);
       return $http.get(url).then(function(response) {
         return dyYahooPipesParser.parseResponseData(response.data, count || DY_YAHOO_PIPES_DEFAULT_COUNT);

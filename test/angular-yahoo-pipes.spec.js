@@ -4,7 +4,7 @@ describe('dyYahooPipes', function() {
   describe('dyYahooPipesParser', function() {
     var dyYahooPipesParser;
 
-    beforeEach(inject(function (_dyYahooPipesParser_) {
+    beforeEach(inject(function(_dyYahooPipesParser_) {
       dyYahooPipesParser = _dyYahooPipesParser_;
     }));
 
@@ -12,7 +12,7 @@ describe('dyYahooPipes', function() {
       var DY_YAHOO_PIPES_PARSE_FUNCTIONS, itemMock, parsedItem;
 
       // Mock  fucntions from DY_YAHOO_PIPES_PARSE_FUNCTIONS
-      beforeEach(inject(function (_DY_YAHOO_PIPES_PARSE_FUNCTIONS_) {
+      beforeEach(inject(function(_DY_YAHOO_PIPES_PARSE_FUNCTIONS_) {
         DY_YAHOO_PIPES_PARSE_FUNCTIONS = _DY_YAHOO_PIPES_PARSE_FUNCTIONS_;
 
         angular.forEach(Object.keys(DY_YAHOO_PIPES_PARSE_FUNCTIONS), function(fnName) {
@@ -31,7 +31,7 @@ describe('dyYahooPipes', function() {
         });
       });
 
-      it('should return item with properties from DY_YAHOO_PIPES_PARSE_FUNCTIONS', function () {
+      it('should return item with properties from DY_YAHOO_PIPES_PARSE_FUNCTIONS', function() {
         expect(Object.keys(parsedItem)).toEqual(Object.keys(DY_YAHOO_PIPES_PARSE_FUNCTIONS));
       });
 
@@ -72,7 +72,7 @@ describe('dyYahooPipes', function() {
           itemMock4 = 'itemMock4';
           itemMock5 = 'itemMock5';
 
-          responseDataMock = {value: {items: [itemMock1, itemMock2, itemMock3, itemMock4, itemMock5 ] }};
+          responseDataMock = {value: {items: [itemMock1, itemMock2, itemMock3, itemMock4, itemMock5]}};
 
           parsedResponseData = dyYahooPipesParser.parseResponseData(responseDataMock, 4);
         });
@@ -98,7 +98,7 @@ describe('dyYahooPipes', function() {
   describe('dyYahooPipesFetcher', function() {
     var $httpBackend, dyYahooPipesFetcher, dyYahooPipesParser;
 
-    beforeEach(inject(function (_$httpBackend_, _dyYahooPipesFetcher_, _dyYahooPipesParser_) {
+    beforeEach(inject(function(_$httpBackend_, _dyYahooPipesFetcher_, _dyYahooPipesParser_) {
       $httpBackend = _$httpBackend_;
       dyYahooPipesFetcher = _dyYahooPipesFetcher_;
       dyYahooPipesParser = _dyYahooPipesParser_;
@@ -154,7 +154,7 @@ describe('dyYahooPipes', function() {
   describe('DY_YAHOO_PIPES_PARSE_FUNCTIONS', function() {
     var DY_YAHOO_PIPES_PARSE_FUNCTIONS;
 
-    beforeEach(inject(function (_DY_YAHOO_PIPES_PARSE_FUNCTIONS_) {
+    beforeEach(inject(function(_DY_YAHOO_PIPES_PARSE_FUNCTIONS_) {
       DY_YAHOO_PIPES_PARSE_FUNCTIONS = _DY_YAHOO_PIPES_PARSE_FUNCTIONS_;
     }));
 
