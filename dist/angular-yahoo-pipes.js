@@ -24,7 +24,7 @@ angular.module('dyYahooPipes', []);
  */
 angular.module('dyYahooPipes').constant(
   'DY_YAHOO_PIPES_URL_PATTERN',
-  'http://pipes.yahoo.com/pipes/pipe.run?_render=json&_id=PIPE_ID'
+  'http://run.pipes.yahoo.com/pipes/pipe.run?_render=json&_id=PIPE_ID'
 );
 
 /**
