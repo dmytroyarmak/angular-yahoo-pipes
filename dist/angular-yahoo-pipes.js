@@ -1,5 +1,16 @@
-/*! angular-yahoo-pipes - v0.1.0 - 2014-11-10
+/*! angular-yahoo-pipes - v0.1.0 - 2014-11-26
 * Copyright (c) 2014 Dmytro Yarmak <dmytroyarmak@gmail.com>; Licensed MIT */
+'use strict';
+
+/**
+ * @ngdoc module
+ * @name dyYahooPipes
+ * @module dyYahooPipes
+ *
+ * @description
+ * The `dyYahooPipes` contains the `dyYahooPipes` directive with all related constants and services.
+ * This module should be added to application's module to use the `dyYahooPipes` directive.
+ */
 angular.module('dyYahooPipes', []);
 
 /**
@@ -13,7 +24,7 @@ angular.module('dyYahooPipes', []);
  */
 angular.module('dyYahooPipes').constant(
   'DY_YAHOO_PIPES_URL_PATTERN',
-  'http://pipes.yahoo.com/pipes/pipe.run?_render=json&_id=PIPE_ID'
+  'http://run.pipes.yahoo.com/pipes/pipe.run?_render=json&_id=PIPE_ID'
 );
 
 /**
@@ -145,7 +156,7 @@ angular.module('dyYahooPipes').factory('dyYahooPipesParser', ['DY_YAHOO_PIPES_PA
      * @param {integer} count Number of items to parse
      * @return {Array} Array of parsed items
      */
-    parseResponseData: function (responseData, count) {
+    parseResponseData: function(responseData, count) {
       var rawItems;
 
       if (responseData.value && responseData.value.items) {
@@ -186,7 +197,7 @@ angular.module('dyYahooPipes').factory('dyYahooPipesFetcher', ['$http', '$q', 'D
      * @param {integer} count Number of items to fetch
      * @returns {promise} Promise that will be resolved by array of pipe's items.
      */
-    fetch: function (pipeId, count) {
+    fetch: function(pipeId, count) {
       var url = DY_YAHOO_PIPES_URL_PATTERN.replace('PIPE_ID', pipeId);
       return $http.get(url).then(function(response) {
         return dyYahooPipesParser.parseResponseData(response.data, count || DY_YAHOO_PIPES_DEFAULT_COUNT);

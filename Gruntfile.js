@@ -1,4 +1,5 @@
 /*global module:false*/
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -19,6 +20,12 @@ module.exports = function(grunt) {
         src: 'src/**/*.js'
       }
     },
+    jscs: {
+      src: ['src/**/*.js', 'test/**/*.spec.js', 'example/js/**/*.js', 'Gruntfile.js', 'karma.conf.js'],
+      options: {
+          config: '.jscsrc'
+      }
+    },
     ngtemplates: {
       dist: {
         src: '<%= pkg.name %>.tpl.html',
@@ -31,11 +38,11 @@ module.exports = function(grunt) {
     },
     ngAnnotate: {
       options: {
-        singleQuotes: true,
+        singleQuotes: true
       },
       dist: {
         src: 'src/<%= pkg.name %>.js',
-        dest: 'tmp/annotated.js',
+        dest: 'tmp/annotated.js'
       }
     },
     concat: {
@@ -98,6 +105,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks("grunt-jscs");
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -108,7 +116,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('build:js', ['jshint', 'ngtemplates', 'ngAnnotate', 'concat', 'uglify']);
+  grunt.registerTask('build:js', ['jshint', 'jscs', 'ngtemplates', 'ngAnnotate', 'concat', 'uglify']);
   grunt.registerTask('build:css', ['less', 'autoprefixer', 'cssmin']);
 
   // Default task.
